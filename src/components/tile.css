@@ -1,0 +1,35 @@
+:root {
+    --trans: all 0.5s ease;
+}
+
+.tile {
+    min-height: 3rem;
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    transition: var(--trans);
+}
+
+.tile:hover {
+    cursor: pointer;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    transition: var(--trans);
+}
+
+.details.tint {
+    color: #000;
+}
+
+.details.shade {
+    color: #fff;
+}
+
+.details.hide {
+    display: none;
+    transition: var(--trans);
+}
