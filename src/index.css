@@ -1,16 +1,21 @@
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
 }
 
 :root {
-  --clr-err: hsl(0, 82.76%, 65.88%);
-  --clr-btn: hsl(209.19, 40.22%, 36.08%);
-  --clr-btn-hover: hsl(214.14, 54.72%, 20.78%);
-  --clr-lite-grey: hsl(205.71, 15.84%, 56.67%);
-  --trans: 0.5s ease;
+    --clr-err: hsl(0, 82.76%, 65.88%);
+    --clr-btn: hsl(209.19, 40.22%, 36.08%);
+    --clr-btn-hover: hsl(214.14, 54.72%, 20.78%);
+    --clr-lite-grey: hsl(205.71, 15.84%, 56.67%);
+    --trans: 0.5s ease;
+    --font-noto: 'Noto Sans', sans-serif;
 }
 
 body {
@@ -20,6 +25,7 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-noto);
 }
 
 code {
@@ -47,50 +53,86 @@ code {
 }
 
 .input-container input:focus {
-  border-color: #000;
+    border-color: #000;
 }
 
 .input-container button {
-  font-family: inherit;
-  font-weight: 500;
-  font-size: 1.2rem;
-  color: #fff;
-  background-color: var(--clr-btn);
-  padding: 0.5rem 1.2rem;
-  border: 0;
-  border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  transition: var(--trans);
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: var(--clr-btn);
+    padding: 0.5rem 1.2rem;
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: var(--trans);
 }
 
 .input-container button:hover {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .err {
-  color: var(--clr-err);
-  position: absolute;
-  top: 2.6rem;
+    color: var(--clr-err);
+    position: absolute;
+    top: 2.6rem;
 }
 
 .err.hide {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 .colors {
-  width: 70%;
-  max-width: 24rem;
-  margin: auto;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 8px;
-  overflow: hidden;
+    width: 70%;
+    max-width: 24rem;
+    margin: auto;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-@media screen and (min-width: ) {
-  
+.clip {
+    background: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    width: 14rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    z-index: 2;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    position: fixed;
+    bottom: 3rem;
+    left: calc(50vw - 12rem / 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.clip .TiTick {
+    background-color: #96ed89;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.clip.hide {
+    display: none;
+}
+
+@media screen and (min-width: 850px) {
+  .colors {
+    min-width: 90%;
+    height: 8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 }
