@@ -8,10 +8,14 @@ function App() {
     const [err, setErr] = useState(false);
     const [errMsg, setErrMsg] = useState("Input cannot be empty");
     const [clr, setClr] = useState("hsl(112.2, 73.53%, 73.33%)");
+    const [clip, setClip] = useState("clip hide");
     const color = new Values(clr).all();
 
-    function clipboard() {
-        //
+    async function clipboard() {
+        setClip("clip");
+        setTimeout(() => {
+            setClip("clip hide");
+        }, 1600);
     }
 
     return (
@@ -52,10 +56,10 @@ function App() {
             </div>
             <section className="colors">
                 {color.map((i, ind) => (
-                    <Tile key={ind} obj={i} />
+                    <Tile key={ind} obj={i} clip={clipboard} />
                 ))}
             </section>
-            <p className="clip">
+            <p className={clip}>
                 Copied to clipboard <TiTick className="TiTick" />
             </p>
         </div>

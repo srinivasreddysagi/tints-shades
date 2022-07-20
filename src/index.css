@@ -115,6 +115,7 @@ code {
     justify-content: center;
     gap: 0.6rem;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.8s ease;
 }
 
 .clip .TiTick {
@@ -125,6 +126,7 @@ code {
 
 .clip.hide {
     display: none;
+    transition: 0.8s ease;
 }
 
 @media screen and (min-width: 850px) {

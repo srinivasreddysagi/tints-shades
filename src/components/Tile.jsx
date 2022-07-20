@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./tile.css";
 
-function Tile({ obj }) {
+function Tile({ obj, clip }) {
     const [show, setShow] = useState(false);
     return (
         <article
@@ -9,7 +9,10 @@ function Tile({ obj }) {
             style={{ backgroundColor: `#${obj.hex}` }}
             onMouseEnter={() => setShow(true)}
             onMouseLeave={() => setShow(false)}
-            onClick={() => navigator.clipboard.writeText(`#${obj.hex}`)}
+            onClick={() => {
+                clip();
+                navigator.clipboard.writeText(`#${obj.hex}`);
+            }}
         >
             <div
                 className={
