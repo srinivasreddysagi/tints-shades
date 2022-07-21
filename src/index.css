@@ -52,6 +52,10 @@ code {
     border-radius: 4px;
 }
 
+.input-container input::placeholder {
+    font-family: inherit;
+}
+
 .input-container input:focus {
     border-color: #000;
 }
@@ -109,7 +113,7 @@ code {
     -webkit-backdrop-filter: blur(5px);
     position: fixed;
     bottom: 3rem;
-    left: calc(50vw - 12rem / 2);
+    left: calc(50vw - 7rem);
     display: flex;
     align-items: center;
     justify-content: center;

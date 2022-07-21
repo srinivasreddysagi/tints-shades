@@ -15,7 +15,7 @@ function App() {
         setClip("clip");
         setTimeout(() => {
             setClip("clip hide");
-        }, 1600);
+        }, 1500);
     }
 
     return (
@@ -33,21 +33,20 @@ function App() {
                 />
                 <small className={err ? "err" : "err hide"}>{errMsg}</small>
                 <button
-                    onClick={(e) => {
+                    onClick={() => {
                         if (val.trim() === "") {
                             setErr(true);
                             setErrMsg("Input cannot be empty");
-                        } else if (
-                            typeof val === "string" &&
-                            val.length === 6 &&
-                            !isNaN(Number("0x" + val))
-                        ) {
-                            setErr(true);
-                            setErrMsg("Not a valid color");
-                        } else {
+                        } else if (/^#([(0-9)(a-f)]{3}|[(0-9)(a-f)]{6})$/i.test(val)) {
                             setClr(val);
                             setVal("");
                             setErr(false);
+                        } else if (/^rgb/i.test(val) || /^hsl/i.test(val)) {
+                            setErr(true);
+                            setErrMsg("Only HEX values are accepted");
+                        } else {
+                            setErr(true);
+                            setErrMsg("Not a valid color");
                         }
                     }}
                 >
